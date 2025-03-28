@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculadora {
+            width: 300px;
+            background-color: black;
+            border: 2px solid gray;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .tela {
+            width: 90%;
+            height: 50px;
+            background-color: gray;
+            color: white;
+            text-align: right;
+            font-size: 1.5em;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .teclas {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .tecla {
+            background-color: gray;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tecla:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="calculadora">
+        <input type="text" id="tela" class="tela" disabled />
+        <div class="teclas">
+            <button class="tecla" onclick="adicionarValor('7')">7</button>
+            <button class="tecla" onclick="adicionarValor('8')">8</button>
+            <button class="tecla" onclick="adicionarValor('9')">9</button>
+            <button class="tecla" onclick="adicionarValor('/')">/</button>
+
+            <button class="tecla" onclick="adicionarValor('4')">4</button>
+            <button class="tecla" onclick="adicionarValor('5')">5</button>
+            <button class="tecla" onclick="adicionarValor('6')">6</button>
+            <button class="tecla" onclick="adicionarValor('*')">*</button>
+
+            <button class="tecla" onclick="adicionarValor('1')">1</button>
+            <button class="tecla" onclick="adicionarValor('2')">2</button>
+            <button class="tecla" onclick="adicionarValor('3')">3</button>
+            <button class="tecla" onclick="adicionarValor('-')">-</button>
+
+            <button class="tecla" onclick="adicionarValor('0')">0</button>
+            <button class="tecla" onclick="adicionarValor('.')">.</button>
+            <button class="tecla" onclick="calcular()">=</button>
+            <button class="tecla" onclick="adicionarValor('+')">+</button>
+            <button class="tecla" onclick="apagar()">C</button>
+            
+            
+        </div>
+    </div>
+    <script>
+        window.alert("Corinthians ja ganho pô")
+        const tela = document.getElementById('tela');
+        function adicionarValor(valor) {
+            tela.value += valor;
+        }
+        function calcular() {
+            try {
+                tela.value = eval(tela.value);
+            } catch (e) {
+                tela.value = 'Erro';
+            }
+        }
+        function apagar() {
+            tela.value = '';
+        }
+      
+    </script>
+    
+</body>
+</html>
